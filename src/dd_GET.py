@@ -23,4 +23,4 @@ def cprinter(item_title, items, item_type):
             pp.pprint(item)
     elif item_type=='dict':
         pp.pprint(items)
-    print(f'↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑S↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ {item_title} ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n')
+    print(f'↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ {item_title} ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n')

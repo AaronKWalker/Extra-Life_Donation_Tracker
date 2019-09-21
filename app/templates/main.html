@@ -1,11 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <style>
+          #progressbar {
+      background-color: black;
+      border-radius: 13px; /* (height of inner div) / 2 + padding */
+      padding: 3px;
+    }
+    
+    #progressbar > div {
+       background-color: #3c9797;
+       width: {{ (donation_total_int / donation_goal_int)*100 }}%;
+       height: 20px;
+       border-radius: 10px;
+    }
+
+    #progressPercentage{
+        color: whitesmoke;
+        font: bold;
+        padding-left: 10px;
+    }
+    </style>
     <p>
         This ugly little site is for the members of EBG to easily use the Donor Drive API
     </p>
     <p>
         <h3>Donation Goal</h3>
         <span>{{ donation_total}} / {{ donation_goal }}</span>
+        <div id="progressbar">
+            <div id="progressPercentage">{{ ((donation_total_int / donation_goal_int)*100)|round }}%</div>
+        </div>
     </p>
+    <div>
+        <h3>Individual Donations</h3>
+        {% for participant in participants %}
+        <p>
+            <h4>{{ participant[0] }}</h4>
+            <ul>
+                {% for donation in participant %}
+                    {% if loop.index0 == 0 %}
+                    {% else %}
+                    <li>{{ donation.displayName }}: {{ donation.d_amount }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </p>
+    {% endfor %}
+    </div>
 {% endblock %}
